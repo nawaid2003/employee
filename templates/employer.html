@@ -1,0 +1,112 @@
+{% extends "base.html" %} {% block title %}Employer Application{% endblock %} {%
+block extra_head %}
+<style>
+  #employee-table {
+    display: none;
+  }
+  .table th,
+  .table td {
+    vertical-align: middle;
+  }
+</style>
+{% endblock %} {% block content %}
+<div class="card shadow-sm p-4 mt-5">
+  <h2 class="text-center mb-4 text-primary">
+    Employer Application - Filter Employees
+  </h2>
+  <div class="mb-3">
+    <label for="department-select" class="form-label fw-bold"
+      >Select Department</label
+    >
+    <select id="department-select" class="form-select"></select>
+  </div>
+  <div id="no-data" class="alert alert-info" style="display: none">
+    No departments available. Please upload employee data.
+  </div>
+  <table id="employee-table" class="table table-striped table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Department</th>
+      </tr>
+    </thead>
+    <tbody id="employee-table-body"></tbody>
+  </table>
+</div>
+{% endblock %} {% block extra_scripts %}
+<script>
+  $(document).ready(function () {
+    $("#department-select").select2({
+      placeholder: "Select a department",
+      allowClear: true,
+    });
+
+    $.ajax({
+      url: "{{ url_for('main.get_departments') }}",
+      type: "GET",
+      success: function (data) {
+        if (data.departments.length === 0) {
+          $("#no-data").show();
+          $("#employee-table").hide();
+        } else {
+          $("#no-data").hide();
+          $("#department-select").append("<option></option>");
+          $.each(data.departments, function (index, department) {
+            $("#department-select").append(
+              $("<option>").text(department).val(department)
+            );
+          });
+        }
+      },
+      error: function () {
+        $("#no-data").text("Error loading departments").show();
+        $("#employee-table").hide();
+      },
+    });
+
+    $("#department-select").on("change", function () {
+      var department = $(this).val();
+      if (department) {
+        $.ajax({
+          url:
+            "{{ url_for('main.get_employees') }}?department=" +
+            encodeURIComponent(department) +
+            "&employer=true",
+          type: "GET",
+          success: function (data) {
+            $("#employee-table-body").empty();
+            if (data.employees.length === 0) {
+              $("#employee-table").hide();
+              $("#no-data")
+                .text("No employees found for this department")
+                .show();
+            } else {
+              $("#no-data").hide();
+              $("#employee-table").show();
+              $.each(data.employees, function (index, employee) {
+                $("#employee-table-body").append(
+                  "<tr><td>" +
+                    employee.id +
+                    "</td><td>" +
+                    employee.name +
+                    "</td><td>" +
+                    employee.department +
+                    "</td></tr>"
+                );
+              });
+            }
+          },
+          error: function () {
+            $("#no-data").text("Error loading employees").show();
+            $("#employee-table").hide();
+          },
+        });
+      } else {
+        $("#employee-table").hide();
+        $("#no-data").text("Please select a department").show();
+      }
+    });
+  });
+</script>
+{% endblock %}

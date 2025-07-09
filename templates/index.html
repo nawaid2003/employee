@@ -1,0 +1,17 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+%}
+<div class="card shadow-sm p-5 mt-5 text-center">
+  <h2 class="mb-4 text-primary">Welcome to Employee Management</h2>
+  <p class="text-muted mb-4">Select an application to manage employee data:</p>
+  <div class="d-grid gap-3 d-md-flex justify-content-md-center">
+    <a
+      href="{{ url_for('main.employer') }}"
+      class="btn btn-outline-primary btn-lg"
+      >Employer Application (Filter)</a
+    >
+    <a href="{{ url_for('dashboard.upload') }}" class="btn btn-primary btn-lg"
+      >Employee Dashboard (Upload & Search)</a
+    >
+  </div>
+</div>
+{% endblock %}

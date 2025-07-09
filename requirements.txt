@@ -1,0 +1,8 @@
+Flask
+pandas
+pyodbc
+openpyxl
+Werkzeug
+python-dotenv
+Flask-WTF
+psycopg2-binary

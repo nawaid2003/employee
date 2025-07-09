@@ -1,0 +1,85 @@
+{% extends "base.html" %} {% block content %}
+<h2>Filter Employees</h2>
+<div class="form-group">
+  <label for="department">Select Department:</label>
+  <select id="department" style="width: 100%">
+    <option value="">Select a department...</option>
+  </select>
+</div>
+<div
+  id="no-data-message"
+  style="
+    display: none;
+    margin-top: 20px;
+    color: #721c24;
+    background: #f8d7da;
+    padding: 15px;
+    border-radius: 4px;
+  "
+>
+  No departments available. Please upload an Excel file first.
+</div>
+<div id="employees-list" style="margin-top: 20px"></div>
+
+<script>
+  $(document).ready(function () {
+    // Initialize Select2
+    $("#department").select2({
+      placeholder: "Select a department...",
+      allowClear: true,
+    });
+
+    // Load departments
+    $.ajax({
+      url: "/api/departments",
+      method: "GET",
+      success: function (data) {
+        var select = $("#department");
+        var noDataMessage = $("#no-data-message");
+        if (data.departments.length === 0) {
+          noDataMessage.show();
+        } else {
+          noDataMessage.hide();
+          data.departments.forEach(function (dept) {
+            select.append(new Option(dept, dept));
+          });
+        }
+      },
+      error: function () {
+        $("#no-data-message").text("Error loading departments").show();
+      },
+    });
+
+    // Handle department selection
+    $("#department").on("change", function () {
+      var department = $(this).val();
+      var employeesList = $("#employees-list");
+
+      if (department) {
+        $.ajax({
+          url: "/api/employees/" + encodeURIComponent(department),
+          method: "GET",
+          success: function (data) {
+            var html = "<h3>Employees in " + department + ":</h3>";
+            if (data.employees.length > 0) {
+              html += "<ul>";
+              data.employees.forEach(function (emp) {
+                html += "<li>" + emp.name + " (ID: " + emp.id + ")</li>";
+              });
+              html += "</ul>";
+            } else {
+              html += "<p>No employees found in this department.</p>";
+            }
+            employeesList.html(html);
+          },
+          error: function () {
+            employeesList.html("<p>Error loading employees</p>");
+          },
+        });
+      } else {
+        employeesList.html("");
+      }
+    });
+  });
+</script>
+{% endblock %}
