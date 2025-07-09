@@ -1,0 +1,202 @@
+INFO:root:Database EmployeeDB ready
+INFO:root:Database table and index initialized successfully
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 249-512-335
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:14:27] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:15:28] "[32mGET /employer HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:15:28] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:15:33] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:15:33] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:15:37] "GET /upload HTTP/1.1" 200 -
+INFO:root:File saved to blob storage: BlobStorage\6fd43a8a-f761-48e1-85ff-797189a4db2b_employees.xlsx
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:15:48] "POST /upload HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:15:51] "GET /upload HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:15:53] "GET /search HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:15:53] "GET /api/departments HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:15:55] "GET /api/employees?department=HR HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:15:59] "GET /api/employees?department=IT HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:16:03] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:16:04] "GET /employer HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:16:04] "GET /api/departments HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:16:06] "GET /api/employees?department=HR&employer=true HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:16:09] "GET /api/employees?department=IT&employer=true HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:16:11] "GET /api/employees?department=Marketing&employer=true HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:16:12] "GET /employer HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:16:12] "GET /api/departments HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:16:15] "GET /api/employees?department=IT&employer=true HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:16:18] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:16:20] "GET /upload HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:16:23] "GET /search HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:16:23] "GET /api/departments HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:16:24] "GET /api/employees?department=HR HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:19:03] "GET /upload HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:19:07] "GET /search HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:19:07] "GET /api/departments HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:19:18] "GET /api/employees?department=HR HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:19:22] "GET /employer HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:19:22] "GET /api/departments HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:19:24] "GET /api/employees?department=HR&employer=true HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:36:36] "GET /upload HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:36:39] "GET /search HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:36:39] "GET /api/departments HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:36:42] "GET /api/employees?department=IT HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:36:51] "GET /employer HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:36:51] "GET /api/departments HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:36:54] "GET /api/employees?department=Finance&employer=true HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:37:30] "GET /upload HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:37:31] "GET /search HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:37:31] "GET /api/departments HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:37:33] "GET /api/employees?department=IT HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:43:04] "GET /employer HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:43:04] "GET /api/departments HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:43:34] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:43:38] "GET /employer HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:43:38] "GET /api/departments HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:43:42] "GET /upload HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:45:54] "GET /employer HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:45:54] "GET /api/departments HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:49:12] "GET /api/employees?department=IT&employer=true HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:49:18] "GET /api/employees?department=Finance&employer=true HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:49:19] "GET /api/employees?department=IT&employer=true HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:50:18] "GET /upload HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:50:22] "GET /employer HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:50:22] "GET /api/departments HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 21:50:24] "GET /upload HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\ACER\\Documents\\Projects\\advance\\app.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\ACER\\Documents\\Projects\\advance\\app.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\ACER\\Documents\\Projects\\advance\\app.py', reloading
+INFO:root:Database EmployeeDB ready
+INFO:root:Database table and index initialized successfully
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 249-512-335
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 22:03:35] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 22:03:41] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 22:03:47] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 22:03:47] "GET /dashboard/upload HTTP/1.1" 200 -
+INFO:root:File saved to blob storage: BlobStorage\fe72cec3-eef9-435c-9ccc-22d178cdeb1d_employees.xlsx
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 22:04:01] "POST /dashboard/upload HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 22:04:05] "GET /dashboard/search HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 22:04:05] "GET /api/departments HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 22:04:08] "GET /api/employees?department=Finance HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 22:04:11] "GET /api/employees?department=IT HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 22:04:14] "GET /employer HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 22:04:14] "GET /api/departments HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 22:04:17] "GET /api/employees?department=HR&employer=true HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 22:04:20] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 22:04:22] "GET /employer HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 22:04:22] "GET /api/departments HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 22:04:24] "GET /dashboard/upload HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 22:04:25] "GET /dashboard/download_template HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 22:04:41] "GET / HTTP/1.1" 200 -
+INFO:root:Database EmployeeDB ready
+INFO:root:Database table and index initialized successfully
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with watchdog (windowsapi)
+INFO:root:Database EmployeeDB ready
+INFO:root:Database table and index initialized successfully
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 249-512-335
+INFO:root:Database EmployeeDB ready
+INFO:root:Database table and index initialized successfully
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with watchdog (windowsapi)
+INFO:root:Database EmployeeDB ready
+INFO:root:Database table and index initialized successfully
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 249-512-335
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 22:06:11] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 22:06:17] "[32mGET /employer HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 22:06:17] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 22:06:26] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 22:06:26] "GET /dashboard/upload HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 22:06:39] "GET /dashboard/search HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 22:06:39] "GET /api/departments HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 22:06:40] "GET /api/employees?department=HR HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Jul/2025 22:06:48] "GET / HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\ACER\\Documents\\Projects\\advance\\create_database.py', reloading
+INFO:werkzeug: * Restarting with watchdog (windowsapi)
+INFO:root:Database EmployeeDB ready
+INFO:root:Database table and index initialized successfully
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 249-512-335
+INFO:werkzeug: * Detected change in 'C:\\Users\\ACER\\Documents\\Projects\\advance\\config.py', reloading
+INFO:werkzeug: * Restarting with watchdog (windowsapi)
+INFO:root:Database EmployeeDB ready
+INFO:root:Database table and index initialized successfully
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 249-512-335
+INFO:werkzeug: * Detected change in 'C:\\Users\\ACER\\Documents\\Projects\\advance\\app_postgres.py', reloading
+INFO:werkzeug: * Restarting with watchdog (windowsapi)
+INFO:root:Database EmployeeDB ready
+INFO:root:Database table and index initialized successfully
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 249-512-335
+INFO:werkzeug: * Detected change in 'C:\\Program Files\\Python312\\Lib\\urllib\\parse.py', reloading
+INFO:werkzeug: * Restarting with watchdog (windowsapi)
+INFO:root:Database EmployeeDB ready
+INFO:root:Database table and index initialized successfully
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 249-512-335
+INFO:werkzeug: * Detected change in 'C:\\Users\\ACER\\Documents\\Projects\\advance\\app_postgres.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\ACER\\Documents\\Projects\\advance\\app_postgres.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\ACER\\Documents\\Projects\\advance\\app_postgres.py', reloading
+INFO:werkzeug: * Restarting with watchdog (windowsapi)
+INFO:root:Database EmployeeDB ready
+INFO:root:Database table and index initialized successfully
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 249-512-335
+INFO:werkzeug: * Detected change in 'C:\\Users\\ACER\\AppData\\Roaming\\Python\\Python312\\site-packages\\psycopg2\\__init__.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\ACER\\AppData\\Roaming\\Python\\Python312\\site-packages\\psycopg2\\__init__.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\ACER\\AppData\\Roaming\\Python\\Python312\\site-packages\\psycopg2\\__init__.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\ACER\\AppData\\Roaming\\Python\\Python312\\site-packages\\psycopg2\\_ipaddress.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\ACER\\AppData\\Roaming\\Python\\Python312\\site-packages\\psycopg2\\_ipaddress.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\ACER\\AppData\\Roaming\\Python\\Python312\\site-packages\\psycopg2\\_json.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\ACER\\AppData\\Roaming\\Python\\Python312\\site-packages\\psycopg2\\_json.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\ACER\\AppData\\Roaming\\Python\\Python312\\site-packages\\psycopg2\\_range.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\ACER\\AppData\\Roaming\\Python\\Python312\\site-packages\\psycopg2\\_range.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\ACER\\AppData\\Roaming\\Python\\Python312\\site-packages\\psycopg2\\errorcodes.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\ACER\\AppData\\Roaming\\Python\\Python312\\site-packages\\psycopg2\\errorcodes.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\ACER\\AppData\\Roaming\\Python\\Python312\\site-packages\\psycopg2\\errors.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\ACER\\AppData\\Roaming\\Python\\Python312\\site-packages\\psycopg2\\errors.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\ACER\\AppData\\Roaming\\Python\\Python312\\site-packages\\psycopg2\\extensions.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\ACER\\AppData\\Roaming\\Python\\Python312\\site-packages\\psycopg2\\extensions.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\ACER\\AppData\\Roaming\\Python\\Python312\\site-packages\\psycopg2\\extras.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\ACER\\AppData\\Roaming\\Python\\Python312\\site-packages\\psycopg2\\extras.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\ACER\\AppData\\Roaming\\Python\\Python312\\site-packages\\psycopg2\\pool.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\ACER\\AppData\\Roaming\\Python\\Python312\\site-packages\\psycopg2\\pool.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\ACER\\AppData\\Roaming\\Python\\Python312\\site-packages\\psycopg2\\sql.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\ACER\\AppData\\Roaming\\Python\\Python312\\site-packages\\psycopg2\\sql.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\ACER\\AppData\\Roaming\\Python\\Python312\\site-packages\\psycopg2\\tz.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\ACER\\AppData\\Roaming\\Python\\Python312\\site-packages\\psycopg2\\tz.py', reloading
+INFO:werkzeug: * Restarting with watchdog (windowsapi)
+INFO:root:Database EmployeeDB ready
+INFO:root:Database table and index initialized successfully
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 249-512-335
+INFO:werkzeug: * Detected change in 'C:\\Users\\ACER\\Documents\\Projects\\advance\\app_postgres.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\ACER\\Documents\\Projects\\advance\\app_postgres.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\ACER\\Documents\\Projects\\advance\\app_postgres.py', reloading
+INFO:werkzeug: * Restarting with watchdog (windowsapi)
+INFO:root:Database EmployeeDB ready
+INFO:root:Database table and index initialized successfully
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 249-512-335
+INFO:werkzeug: * Detected change in 'C:\\Users\\ACER\\Documents\\Projects\\advance\\app_postgres.py', reloading
+INFO:werkzeug: * Restarting with watchdog (windowsapi)
+INFO:root:Database EmployeeDB ready
+INFO:root:Database table and index initialized successfully
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 249-512-335
+INFO:werkzeug: * Detected change in 'C:\\Users\\ACER\\Documents\\Projects\\advance\\app.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\ACER\\Documents\\Projects\\advance\\app.py', reloading
+INFO:werkzeug: * Detected change in 'C:\\Users\\ACER\\Documents\\Projects\\advance\\app.py', reloading
+INFO:werkzeug: * Restarting with watchdog (windowsapi)
+INFO:werkzeug: * Restarting with watchdog (windowsapi)
+INFO:root:Database EmployeeDB ready
+INFO:root:Database table and index initialized successfully
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 249-512-335
