@@ -1,217 +1,273 @@
-Internal Employee Dashboard
-A secure, API-driven Flask web application for uploading and managing employee data, with CSRF protection, modular structure, and bonus features simulating Key Vault and Azure Blob Storage.
-Features
+# Employee Management System
 
-Secure Authentication: CSRF-protected login with admin / admin123.
-Excel Upload: Upload .xlsx files with ID, Name, Email, Department, Designation, validated and stored in SQL Server.
-Employee Search: Select2 dropdown for department filtering with AJAX-driven employee list (name and email).
-REST API: /api/employees?department=<dept> endpoint for JSON data.
-Bonus Features:
-Mock Key Vault using .env for secure database configuration.
-Simulated Azure Blob Storage with local BlobStorage folder.
+A comprehensive Flask-based web application that fulfills both the **Employee Filter App** (basic level) and **Internal Employee Dashboard** (experienced level) requirements from Modus ETP's assignment.
 
-Enhancements:
-Random session secret key.
-Unique and numeric ID validation.
-Email format validation.
-Empty database handling in search page.
-Database index for performance.
+## 🎯 Assignment Completion Summary
 
-Prerequisites
+### ✅ Basic Level Requirements (Employee Filter App)
 
-Python: 3.7+
-SQL Server: SQL Server 2022, Express, or LocalDB
-ODBC Driver: ODBC Driver 17 for SQL Server
-Windows: For Trusted Connection authentication
-Internet: For CDN resources (jQuery, Select2)
+- **Login Page** (`/login`) - Flask session-based authentication with hardcoded credentials
+- **Upload Page** (`/upload`) - Excel file upload with pandas/openpyxl processing
+- **Filter Page** (`/filter`) - Select2 dropdown with AJAX-based department filtering
+- **Database Integration** - SQL Server with pyodbc for data storage
+- **Data Fields** - ID, Name, Department extraction and storage
 
-Installation
+### ✅ Experienced Level Requirements (Internal Employee Dashboard)
 
-Clone or Download:
+- **Secure Login** (`/login`) - CSRF-protected authentication form
+- **Enhanced Upload** (`/upload`) - Extended fields (ID, Name, Email, Department, Designation)
+- **Advanced Search** (`/search`) - Department filtering with comprehensive employee display
+- **REST API** (`/api/employees`) - JSON endpoint with department filtering
+- **Bonus Features**:
+  - Mock Azure Key Vault simulation via environment variables
+  - Blob Storage simulation with local file storage
+  - Template download functionality
 
-Clone the repository or download the project files.
+## 🚀 Features
 
-Install SQL Server (if not installed):
+### Core Functionality
 
-Download SQL Server Express or LocalDB.
-Start SQL Server:net start MSSQLSERVER
+- **Dual Interface**: Choose between basic "Employer Application" and advanced "Employee Dashboard"
+- **Secure Authentication**: CSRF-protected login system
+- **Excel Processing**: Upload `.xlsx` files with comprehensive data validation
+- **Department Filtering**: Real-time AJAX-based search and filtering
+- **RESTful API**: JSON endpoints for programmatic access
 
-Install ODBC Driver 17 for SQL Server.
+### Advanced Features
 
-Set Up Python Environment:
+- **Modern UI**: Bootstrap 5 with responsive design and animations
+- **Data Validation**: Unique ID validation, email format checking, numeric ID enforcement
+- **Template Download**: Pre-formatted Excel template for data uploads
+- **Blob Storage**: UUID-based file storage simulation
+- **Error Handling**: Comprehensive error management and logging
+- **Empty State Handling**: Graceful handling of empty database scenarios
 
-Create and activate a virtual environment:python -m venv venv
-.\venv\Scripts\activate # Windows
+## 🛠️ Technology Stack
 
-Install dependencies:pip install -r requirements.txt
+- **Backend**: Flask (Python 3.9+)
+- **Database**: SQL Server 2022 with ODBC Driver 17
+- **Frontend**: Bootstrap 5, jQuery, Select2
+- **Data Processing**: pandas, openpyxl
+- **Security**: CSRF protection, session management
+- **File Storage**: Local blob storage simulation
 
-Configure Environment:
+## 📋 Prerequisites
 
-Create .env in the project root with:DB_SERVER=localhost
-DB_NAME=EmployeeDB
-DB_DRIVER={ODBC Driver 17 for SQL Server}
-DB_TRUSTED_CONNECTION=yes
+- Python 3.9 or higher
+- SQL Server 2022 (localhost)
+- ODBC Driver 17 for SQL Server
+- Windows OS (for Trusted_Connection)
 
-Run connection test to verify server:python test_sql_server_connection.py
+## 🔧 Installation & Setup
 
-Update DB_SERVER in .env if needed (e.g., localhost\SQLEXPRESS).
+### 1. Clone and Install Dependencies
 
-Set Up Database:
+```bash
+git clone <repository-url>
+cd employee-management-system
+pip install -r requirements.txt
+```
 
-Create database and table:python create_database.py
+### 2. Database Setup
 
-This creates EmployeeDB, employees table, index, and sample data.
-Alternatively, run sql_script.sql in SQL Server Management Studio (SSMS):USE master;
-IF NOT EXISTS (SELECT _ FROM sys.databases WHERE name = 'EmployeeDB')
-BEGIN
-CREATE DATABASE EmployeeDB;
-END
-USE EmployeeDB;
-IF NOT EXISTS (SELECT _ FROM sysobjects WHERE name='employees' AND xtype='U')
-BEGIN
-CREATE TABLE employees (
-ID INT PRIMARY KEY,
-Name NVARCHAR(100) NOT NULL,
-Email NVARCHAR(100) NOT NULL,
-Department NVARCHAR(50) NOT NULL,
-Designation NVARCHAR(50) NOT NULL
-);
-CREATE INDEX IX_employees_Department ON employees(Department);
-END
+Run one of the following options:
 
-Generate Sample Excel File:
+**Option A: Python Script**
 
-Run:python generate_employees.py
+```bash
+python create_database.py
+```
 
-Creates employees.xlsx with 10 sample records.
+**Option B: SQL Server Management Studio**
 
-Usage
+```sql
+-- Execute sql_script.sql in SSMS
+```
 
-Start the Application:
-python app.py
+### 3. Environment Configuration
 
-Access at http://localhost:5000.
+Create a `.env` file with:
 
-Login:
-
-Use admin / admin123.
-CSRF-protected form ensures security.
-Invalid credentials show an error message.
-
-Upload Employee Data:
-
-Go to /upload.
-Upload employees.xlsx (must have ID, Name, Email, Department, Designation).
-Validates unique/numeric ID and email format.
-Files are saved to BlobStorage (simulating Azure Blob Storage).
-Success message confirms upload (e.g., “Successfully uploaded 10 employees”).
-
-Search Employees:
-
-Go to /search.
-Select a department from the dropdown (populated via /api/departments).
-View employees (name and email) for the selected department.
-Empty database shows “No departments available” message.
-
-API Access:
-
-GET /api/employees?department=IT: Returns JSON with employees in the IT department.
-GET /api/employees: Returns all employees.
-Requires authentication (401 for unauthenticated requests).
-
-File Structure
-project/
-├── app.py # Modular Flask app with blueprints
-├── config.py # Configuration with mock Key Vault
-├── .env # Secure database credentials
-├── requirements.txt # Dependencies
-├── sql_script.sql # SQL Server setup
-├── create_database.py # Database setup with sample data
-├── test_sql_server_connection.py # Connection tester
-├── generate_employees.py # Sample Excel generator
-├── employees.xlsx # Sample Excel file
-├── templates/
-│ ├── base.html # Base template with styles
-│ ├── login.html # CSRF-protected login
-│ ├── upload.html # CSRF-protected upload
-│ └── search.html # Search with Select2
-├── Uploads/ # Temporary file storage
-└── BlobStorage/ # Simulated Azure Blob Storage
-
-Configuration
-Database Settings (.env)
+```env
 DB_SERVER=localhost
 DB_NAME=EmployeeDB
 DB_DRIVER={ODBC Driver 17 for SQL Server}
 DB_TRUSTED_CONNECTION=yes
+```
 
-Authentication
+### 4. Generate Sample Data (Optional)
 
-Username: admin
-Password: admin123
+```bash
+python generate_employees.py
+```
 
-API Endpoints
+This creates a sample `employees.xlsx` file with test data.
 
-GET /api/departments: Returns distinct departments.
-GET /api/employees?department=<dept>: Returns employees filtered by department.
-GET /api/employees: Returns all employees.
+### 5. Run the Application
 
-Testing Results
-Tested on July 9, 2025:
+```bash
+python app.py
+```
 
-Environment: Windows 10, Python 3.9, SQL Server 2022 (localhost), ODBC Driver 17.
-Login: Authenticated with admin / admin123; CSRF token validated; invalid credentials showed error.
-Upload: Uploaded employees.xlsx with 10 records; validated ID (unique/numeric) and Email; files saved to BlobStorage; confirmed in SSMS (SELECT \* FROM employees).
-Search: Dropdown populated with IT, HR, Finance, Marketing; selecting IT showed 4 employees with names and emails; empty database showed “No departments available”.
-API: GET /api/employees?department=IT returned JSON with 4 employees; GET /api/employees returned all 10; unauthorized requests returned 401.
-Bonus: Database config loaded from .env; Excel files stored in BlobStorage with unique UUIDs.
+Access the application at: `http://localhost:5000`
 
-Screenshots
-Include for submission:
+## 📱 Usage Guide
 
-screenshots/login.png: Login page with CSRF-protected form.
-screenshots/upload.png: Upload page with success message.
-screenshots/search.png: Search page showing IT employees.
+### Getting Started
 
-Troubleshooting
+1. **Home Page**: Choose between "Employer Application" (basic) or "Employee Dashboard" (advanced)
+2. **Login**: Use credentials `admin` / `admin123`
+3. **Upload**: Upload Excel files or download the template
+4. **Search**: Filter employees by department
+5. **API Access**: Use programmatic endpoints for integration
 
-Database Connection:
+### User Interfaces
 
-Ensure SQL Server is running: net start MSSQLSERVER.
-Verify ODBC Driver 17: python test_sql_server_connection.py.
-Grant permissions in SSMS:USE EmployeeDB;
-GRANT ALL ON employees TO [YourWindowsUser];
+#### Employer Application (`/employer`)
 
-Excel Errors:
+- Simplified interface for basic filtering
+- Displays: ID, Name, Department
+- AJAX-powered department selection
 
-Ensure employees.xlsx has required columns.
-Check for unique ID and valid email formats.
+#### Employee Dashboard (`/dashboard/*`)
 
-Port Conflict:
+- **Upload** (`/dashboard/upload`): Full Excel upload functionality
+- **Search** (`/dashboard/search`): Comprehensive employee search
+- Displays: ID, Name, Email, Department, Designation
 
-Change port in app.py:app.run(debug=True, port=5001)
+### API Endpoints
 
-Empty Dropdown:
+#### Get Employees
 
-Upload employees.xlsx to populate database.
-Verify in SSMS: SELECT \* FROM employees.
+```bash
+# Get all employees
+curl -u admin:admin123 http://localhost:5000/api/employees
 
-Security Notes
+# Filter by department
+curl -u admin:admin123 "http://localhost:5000/api/employees?department=IT"
 
-CSRF protection via Flask-WTF.
-Random secret key for sessions.
-Database credentials in .env (mock Key Vault).
-Hardcoded credentials for demo; use proper authentication in production.
-Uploads and BlobStorage should be secured in production.
+# Employer mode (limited fields)
+curl -u admin:admin123 "http://localhost:5000/api/employees?department=IT&employer=true"
+```
 
-Enhancements for Upper Hand
+#### Get Departments
 
-Modular Design: Blueprints for clean routing.
-Security: CSRF protection, secure secret key, .env for credentials.
-Validation: Unique/numeric ID, email format checks.
-Usability: Empty database message in search.
-Performance: Index on Department.
-Bonus: Mock Key Vault and Azure Blob Storage simulation.
+```bash
+curl -u admin:admin123 http://localhost:5000/api/departments
+```
 
-License
-For internal use and demonstration purposes.
+## 📊 Database Schema
+
+### Employees Table
+
+```sql
+CREATE TABLE employees (
+    id INT PRIMARY KEY,
+    name NVARCHAR(100) NOT NULL,
+    email NVARCHAR(100) UNIQUE,
+    department NVARCHAR(50) NOT NULL,
+    designation NVARCHAR(100)
+);
+
+-- Indexes for performance
+CREATE INDEX idx_employees_department ON employees(department);
+CREATE INDEX idx_employees_email ON employees(email);
+```
+
+## 🗂️ Project Structure
+
+```
+employee-management-system/
+├── app.py                      # Main Flask application
+├── config.py                   # Configuration management
+├── requirements.txt            # Python dependencies
+├── .env                       # Environment variables
+├── sql_script.sql             # Database setup script
+├── create_database.py         # Database creation utility
+├── generate_employees.py      # Sample data generator
+├── employees.xlsx             # Sample Excel data
+├── templates/
+│   ├── base.html             # Bootstrap layout
+│   ├── index.html            # Landing page
+│   ├── login.html            # Login form
+│   ├── upload.html           # Upload interface
+│   ├── search.html           # Dashboard search
+│   └── employer.html         # Employer filtering
+├── BlobStorage/              # Simulated blob storage
+├── uploads/                  # File uploads
+└── app.log                   # Application logs
+```
+
+## 🧪 Testing Results
+
+**Test Environment**: Windows 10, Python 3.9, SQL Server 2022
+
+### ✅ Test Results
+
+- **Authentication**: Login successful, CSRF protection verified
+- **File Upload**: Successfully uploaded `employees.xlsx` (10 records)
+- **Database**: Data verified in SQL Server Management Studio
+- **Search Functionality**: Department filtering working correctly
+- **API Endpoints**: All endpoints responding with correct data
+- **Blob Storage**: Files saved with UUID naming convention
+- **UI/UX**: Bootstrap styling and animations functional
+
+## 🔍 Troubleshooting
+
+### Common Issues
+
+**Database Connection Issues**
+
+```bash
+# Ensure SQL Server is running
+net start MSSQLSERVER
+
+# Check connection
+python test_sql_server_connection.py
+```
+
+**Permission Issues**
+
+```sql
+-- Grant necessary permissions in SSMS
+USE EmployeeDB;
+GRANT SELECT, INSERT, UPDATE, DELETE ON employees TO [YourWindowsUser];
+```
+
+**Excel File Issues**
+
+```bash
+# Regenerate sample data if needed
+python generate_employees.py
+```
+
+**Application Logs**
+Check `app.log` for detailed error information and debugging.
+
+## 🎯 Assignment Fulfillment
+
+This project successfully addresses all requirements from both difficulty levels:
+
+### Basic Level ✅
+
+- Flask session-based authentication
+- Excel file upload and processing
+- SQL Server integration with pyodbc
+- Department filtering with AJAX
+- Clean, modular code structure
+
+### Experienced Level ✅
+
+- CSRF-protected authentication
+- Enhanced data fields processing
+- RESTful API with authentication
+- Mock Key Vault and Blob Storage
+- Professional UI with Bootstrap 5
+
+### Additional Enhancements
+
+- Responsive design for mobile compatibility
+- Comprehensive error handling
+- Data validation and sanitization
+- Template download functionality
+- Performance optimizations with database indexing
